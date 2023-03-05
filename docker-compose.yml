@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  database_ipdcbr:
+    image: postgres
+    container_name: database_courses
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=api0
+      - POSTGRES_DB=courses
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: courses_api
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/courses-api
+
+volumes:
+  pgdata:
+    driver: local
