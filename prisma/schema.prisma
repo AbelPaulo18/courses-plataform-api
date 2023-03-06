@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets   = ["linux-musl", "native", "debian-openssl-1.1.x"]
+} 
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  create_at   DateTime      @default(now())
+  update_at   DateTime      @db.Date
+
+
+  @@map("categories")
+}
