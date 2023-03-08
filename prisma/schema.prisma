@@ -22,3 +22,18 @@ model Category {
 
   @@map("categories")
 }
+
+enum UserRole {
+  USER
+  TEACHER
+}
+model User {
+  id            String @id @default(uuid())
+  name          String
+  email         String
+  phone_number  String
+  balance       Decimal @default(0)
+  role          UserRole @default(USER)
+
+  @@map("users")
+}
