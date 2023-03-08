@@ -34,6 +34,7 @@ model User {
   phone_number  String
   balance       Decimal @default(0)
   role          UserRole @default(USER)
+  create_at   DateTime      @default(now())
 
   @@map("users")
 }
