@@ -19,7 +19,7 @@ interface IResponse {
 export class AuthenticateUserUseCase {
 	constructor(private userRepository: IUsersRepository) {}
 
-	async execute({ email, password }: IRequest): IResponse {
+	async execute({ email, password }: IRequest): Promise<IResponse> {
 		//check if user exists...
 		const user = await this.userRepository.findByEmail(email)
 
