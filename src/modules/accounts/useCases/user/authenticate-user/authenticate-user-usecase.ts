@@ -41,7 +41,11 @@ export class AuthenticateUserUseCase {
 		})
 
 		return {
-			user,
+			user: {
+				email: user.email,
+				phone_number: user.phone_number,
+				name: user.name,
+			},
 			token,
 		}
 	}
