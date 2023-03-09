@@ -6,19 +6,15 @@ export class CreateUserUseCase {
 
 	async execute({
 		name,
-		balance,
 		email,
 		password,
 		phone_number,
-		role,
 	}: ICreateUserDTO): Promise<void> {
 		await this.userRepository.create({
 			name,
-			balance,
 			email,
 			password,
 			phone_number,
-			role,
 		})
 	}
 }

@@ -3,6 +3,6 @@ export interface ICreateUserDTO {
 	email: string
 	password: string
 	phone_number: string
-	balance: number
-	role: 'USER' | 'TEACHER'
+	balance?: number
+	role?: 'USER' | 'TEACHER'
 }
