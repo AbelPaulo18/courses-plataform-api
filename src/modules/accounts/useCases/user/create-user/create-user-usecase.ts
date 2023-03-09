@@ -13,6 +13,18 @@ export class CreateUserUseCase {
 		password,
 		phone_number,
 	}: ICreateUserDTO): Promise<void> {
+		const checkIfUserAlreadyExistsByEmail =
+			await this.userRepository.findByEmail(email)
+		const checkIfUserAlreadyExistsByPhoneNumber =
+			await this.userRepository.findByPhoneNumber(phone_number)
+
+		if (
+			checkIfUserAlreadyExistsByEmail ||
+			checkIfUserAlreadyExistsByPhoneNumber
+		) {
+			throw new Error('User alreadyExists')
+		}
+
 		const hashedPassword: string = await new HashHelper().execute(password)
 
 		await this.userRepository.create({
