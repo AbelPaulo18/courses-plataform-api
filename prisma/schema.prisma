@@ -34,8 +34,8 @@ model User {
   password      String
   phone_number  String      @unique
   balance       Decimal     @default(0)
-  role          UserRole    @default(USER)
-  create_at     DateTime    @default(now())
+  role          UserRole?    @default(USER)
+  create_at     DateTime?    @default(now())
 
   @@map("users")
 }
