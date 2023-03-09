@@ -16,8 +16,8 @@ model Category {
   id          String    @id @default(uuid())
   name        String
   description String
-  create_at   DateTime      @default(now())
-  update_at   DateTime      @db.Date
+  create_at   DateTime?      @default(now())
+  update_at   DateTime?      @db.Date
 
 
   @@map("categories")
