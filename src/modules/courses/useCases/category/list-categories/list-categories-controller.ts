@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { HttpCode } from '../../../../../errors/http-codes'
 import { ListCategoriesUseCase } from './list-categories-usecase'
 
 export class ListCategoriesController {
@@ -7,6 +8,6 @@ export class ListCategoriesController {
 	async handle(request: Request, response: Response) {
 		const all_categories = await this.listCategoriesUseCase.execute()
 
-		return response.status(200).send(all_categories)
+		return response.status(HttpCode.OK).send(all_categories)
 	}
 }

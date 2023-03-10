@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateUserUseCase } from './create-user-usecase'
 
 export class CreateUserController {
@@ -14,6 +15,6 @@ export class CreateUserController {
 			phone_number,
 		})
 
-		response.status(201).send()
+		response.status(HttpCode.CREATED).send()
 	}
 }

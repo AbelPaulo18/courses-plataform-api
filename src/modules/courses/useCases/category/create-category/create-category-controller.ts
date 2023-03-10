@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateCategoryUseCase } from './create-category-usecase'
 
 export class CreateCategoryController {
@@ -9,6 +10,6 @@ export class CreateCategoryController {
 
 		await this.createCategoryUseCase.execute({ name, description })
 
-		return response.status(201).send()
+		return response.status(HttpCode.CREATED).send()
 	}
 }
