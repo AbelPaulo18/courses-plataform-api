@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer'
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
 import { createCategoryController } from '../modules/courses/useCases/category/create-category'
 import { listCategoriesControllers } from '../modules/courses/useCases/category/list-categories'
@@ -9,6 +10,7 @@ const upload = multer({
 	dest: './temp',
 })
 
+categoriesRouter.use(ensureAuthenticated)
 categoriesRouter.post('/', (request, response) => {
 	return createCategoryController.handle(request, response)
 })
