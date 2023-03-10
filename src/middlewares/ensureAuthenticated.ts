@@ -40,6 +40,9 @@ export async function ensureAuthenticated(
 				statusCode: HttpCode.UNAUTHORIZED,
 			})
 
+		request.user = {
+			id: user_id,
+		}
 		next()
 	} catch (error) {
 		throw new AppError({
