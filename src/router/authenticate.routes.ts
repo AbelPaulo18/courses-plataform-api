@@ -3,7 +3,7 @@ import { authenticateUserController } from '../modules/accounts/useCases/user/au
 
 const authRoutes = Router()
 
-authRoutes.post('/sessions', (request, response) => {
-	authenticateUserController.handle(request, response)
+authRoutes.post('/sessions', (request, response, next) => {
+	authenticateUserController.handle(request, response, next)
 })
 export { authRoutes }
