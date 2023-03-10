@@ -61,7 +61,7 @@ model Admin {
 model Courses {
   id String @id @default(uuid())
   name String @unique
-  price String
+  price Decimal
   description String
   cover String
   duration String
