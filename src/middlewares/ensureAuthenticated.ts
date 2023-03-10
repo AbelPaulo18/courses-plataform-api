@@ -15,7 +15,11 @@ export async function ensureAuthenticated(
 ) {
 	const authHeader = request.headers.authorization
 
-	if (!authHeader) throw new AppError('Token missing', HttpCode.UNAUTHORIZED)
+	if (!authHeader)
+		throw new AppError({
+			message: 'Token missing',
+			statusCode: HttpCode.UNAUTHORIZED,
+		})
 
 	//split header to get token
 	const [, token] = authHeader.split(' ')
@@ -30,10 +34,17 @@ export async function ensureAuthenticated(
 
 		const user = await usersRepository.findById(user_id)
 
-		if (!user) throw new AppError('User does not exist', HttpCode.UNAUTHORIZED)
+		if (!user)
+			throw new AppError({
+				message: 'User does not exist',
+				statusCode: HttpCode.UNAUTHORIZED,
+			})
 
 		next()
 	} catch (error) {
-		throw new AppError('Invalid token!', HttpCode.UNAUTHORIZED)
+		throw new AppError({
+			message: 'Invalid token!',
+			statusCode: HttpCode.UNAUTHORIZED,
+		})
 	}
 }
