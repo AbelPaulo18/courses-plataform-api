@@ -1,4 +1,5 @@
 import { hash } from 'bcrypt'
+import { AppError } from '../../../../../errors/AppError'
 
 import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO'
 import { HashHelper } from '../../../helpers/hash/hash-helper'
@@ -22,7 +23,7 @@ export class CreateUserUseCase {
 			checkIfUserAlreadyExistsByEmail ||
 			checkIfUserAlreadyExistsByPhoneNumber
 		) {
-			throw new Error('User alreadyExists')
+			throw new AppError('User alreadyExists')
 		}
 
 		const hashedPassword: string = await new HashHelper().execute(password)

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { AppError } from '../../../../../errors/AppError'
 
 import { ICategoryRepository } from '../../../repositories/icategory-repository'
 
@@ -19,7 +20,7 @@ export class CreateCategoryUseCase {
 
 		if (categoryAlreadyExists) {
 			//throw an error
-			throw new Error('Category already exists')
+			throw new AppError('Category already exists')
 		}
 
 		this.categoryRepository.create({ name, description })
