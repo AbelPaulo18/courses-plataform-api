@@ -18,6 +18,7 @@ model Category {
   description String
   create_at   DateTime?      @default(now())
   update_at   DateTime?      @db.Date
+  courses     Courses[]
 
 
   @@map("categories")
@@ -66,6 +67,9 @@ model Courses {
   duration String
   created_at DateTime? @default(now())
   update_at DateTime?  @updatedAt
+  category Category @relation(fields: [category_id], references: [id])
+
+  category_id String
 
   @@map("courses")
 }
