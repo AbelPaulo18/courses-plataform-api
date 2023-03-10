@@ -8,7 +8,7 @@ import swaggerUi from 'swagger-ui-express'
 
 import swaggerFile from '../swagger.json'
 import { errorHandler } from './errors/error-handler'
-import { HttpCode } from './errors/http-codes'\
+import { HttpCode } from './errors/http-codes'
 
 const server = express()
 
