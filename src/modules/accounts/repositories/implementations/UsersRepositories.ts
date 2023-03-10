@@ -1,7 +1,7 @@
 import { User } from '@prisma/client'
 import { prisma } from '../../../../prisma'
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO'
-import { IUsersRepository } from '../IUsersRepository'
+import { IUpdateUserRequest, IUsersRepository } from '../IUsersRepository'
 
 export class UserRepository implements IUsersRepository {
 	private repository
@@ -47,6 +47,17 @@ export class UserRepository implements IUsersRepository {
 				role,
 				password,
 			},
+		})
+	}
+
+	async updateField({
+		user_id,
+		data,
+		column,
+	}: IUpdateUserRequest): Promise<void> {
+		await this.repository.update({
+			where: { id: user_id },
+			data: { [`${column}`]: data },
 		})
 	}
 }
