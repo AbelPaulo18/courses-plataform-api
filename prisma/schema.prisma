@@ -56,3 +56,16 @@ model Admin {
 
   @@map("admin")
 }
+
+model Courses {
+  id String @id @default(uuid())
+  name String @unique
+  price String
+  description String
+  cover String
+  duration String
+  created_at DateTime? @default(now())
+  update_at DateTime?  @updatedAt
+
+  @@map("courses")
+}
