@@ -11,16 +11,23 @@ export class UserRepository implements IUsersRepository {
 	}
 
 	async findByEmail(email: string): Promise<User | null> {
-		const find = await this.repository.findUnique({ where: { email } })
+		const user = await this.repository.findUnique({ where: { email } })
 
-		return find
+		return user
 	}
 	async findByPhoneNumber(phone: string): Promise<User | null> {
-		const find = await this.repository.findUnique({
+		const user = await this.repository.findUnique({
 			where: { phone_number: phone },
 		})
 
-		return find
+		return user
+	}
+	async findById(id: string): Promise<User | null> {
+		const user = await this.repository.findUnique({
+			where: { id },
+		})
+
+		return user
 	}
 
 	async create({
