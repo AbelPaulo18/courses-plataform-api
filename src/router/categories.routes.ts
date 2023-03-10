@@ -11,8 +11,8 @@ const upload = multer({
 })
 
 categoriesRouter.use(ensureAuthenticated)
-categoriesRouter.post('/', (request, response) => {
-	return createCategoryController.handle(request, response)
+categoriesRouter.post('/', (request, response, next) => {
+	return createCategoryController.handle(request, response, next)
 })
 
 categoriesRouter.get('/', (request, response) => {
