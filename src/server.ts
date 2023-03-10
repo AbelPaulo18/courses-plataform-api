@@ -1,10 +1,14 @@
+import 'express-async-errors'
 import express, { NextFunction, Request, Response } from 'express'
+
+import './errors/processes'
 
 import { router } from './router'
 import swaggerUi from 'swagger-ui-express'
 
 import swaggerFile from '../swagger.json'
-import { AppError } from './errors/AppError'
+import { errorHandler } from './errors/error-handler'
+import { HttpCode } from './errors/http-codes'\
 
 const server = express()
 
@@ -13,22 +17,14 @@ server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 server.use(router)
 
 server.get('/', (request, response) => {
-	response.status(200).send({
+	response.status(HttpCode.OK).send({
 		message: 'Hello World ❤️',
 	})
 })
 
 server.use(
 	(err: Error, request: Request, response: Response, next: NextFunction) => {
-		if (err instanceof AppError)
-			return response.status(err.statusCode).send({
-				message: err.message,
-			})
-
-		return response.status(500).send({
-			status: 'error',
-			message: `Internal Server Error - ${err.message}`,
-		})
+		errorHandler.handleError(err, response)
 	}
 )
 
