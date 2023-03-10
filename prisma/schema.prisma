@@ -40,3 +40,19 @@ model User {
 
   @@map("users")
 }
+
+enum AdminRole {
+  SUPER
+  NORMAL
+}
+model Admin { 
+  id            String @id @default(uuid())
+  name          String
+  email         String @unique
+  password      String
+  phone_number  String
+  role          AdminRole @default(NORMAL)
+  created_at    DateTime? @default(now())
+
+  @@map("admin")
+}
