@@ -5,6 +5,7 @@ export class Courses {
 	duration: string
 	price: number
 	description: string
+	category_id?: string
 	created_at?: Date
 	updated_at?: Date
 }
