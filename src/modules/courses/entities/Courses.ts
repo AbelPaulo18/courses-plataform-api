@@ -2,7 +2,7 @@ export class Courses {
 	id?: string
 	name: string
 	cover: string
-	duration: string
+	duration: number
 	price: number
 	description: string
 	category_id?: string
