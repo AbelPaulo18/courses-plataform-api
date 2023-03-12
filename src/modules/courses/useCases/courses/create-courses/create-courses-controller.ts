@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
+import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateCoursesUseCase } from './create-courses-usecase'
 
 export class CreateCoursesController {
@@ -20,6 +21,8 @@ export class CreateCoursesController {
 				name,
 				price,
 			})
+
+			return response.status(HttpCode.CREATED).send()
 		} catch (error) {
 			next(error)
 		}
