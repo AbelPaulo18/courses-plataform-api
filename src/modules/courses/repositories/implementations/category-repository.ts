@@ -1,3 +1,4 @@
+import { Courses } from '@prisma/client'
 import { prisma } from '../../../../prisma'
 import { ICategoryDTO } from '../../dtos/category-dto'
 import { Category } from '../../entities/category'
@@ -7,6 +8,34 @@ export class CategoryRepository implements ICategoryRepository {
 	private repository
 	constructor() {
 		this.repository = prisma.category
+	}
+	async listSpecificCategoryCourses(category_id: string): Promise<
+		| (Category & {
+				courses: Courses[]
+		  })
+		| null
+	> {
+		const categoryWithCourses = await this.repository.findUnique({
+			where: { id: category_id },
+			include: {
+				courses: true,
+			},
+		})
+
+		return categoryWithCourses
+	}
+
+	async listCategoriesWithCourses(): Promise<
+		| (Category & {
+				courses: Courses[]
+		  })[]
+		| null
+	> {
+		const categories = await this.repository.findMany({
+			include: { courses: true },
+		})
+
+		return categories
 	}
 
 	async create({ name, description }: ICategoryDTO): Promise<void> {
