@@ -76,11 +76,11 @@ model Courses {
 
 model Chapters {
   id          String    @id @default(uuid())
-  name        String    @unique
+  name        String    
   duration    Int 
   created_at  DateTime? @default(now())
   update_at   DateTime? @updatedAt
-  courses     Courses  @relation(fields: [courses_id], references: [id])
+  courses     Courses   @relation(fields: [courses_id], references: [id])
   courses_id  String
 
   @@map("chapters")
