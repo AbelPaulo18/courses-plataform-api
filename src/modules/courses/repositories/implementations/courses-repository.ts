@@ -23,9 +23,9 @@ export class CoursesRepository implements ICoursesRepository {
 		await this.repository.create({
 			data: {
 				name,
-				cover,
 				description,
 				duration,
+				cover,
 				price,
 				category_id,
 			},
