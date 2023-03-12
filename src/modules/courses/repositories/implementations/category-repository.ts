@@ -4,14 +4,6 @@ import { Category } from '../../entities/category'
 import { ICategoryRepository } from '../icategory-repository'
 
 export class CategoryRepository implements ICategoryRepository {
-	/* private static INSTANCE: ICategoryRepository
-
-	public static getInstance(): ICategoryRepository {
-		if (!CategoryRepository.INSTANCE)
-			CategoryRepository.INSTANCE = new CategoryRepository()
-
-		return CategoryRepository.INSTANCE
-	} */
 	private repository
 	constructor() {
 		this.repository = prisma.category
