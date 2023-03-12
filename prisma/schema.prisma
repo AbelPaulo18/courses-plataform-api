@@ -13,11 +13,11 @@ datasource db {
 
 
 model Category {
-  id          String    @id @default(uuid())
+  id          String    @id  @default(uuid())
   name        String
   description String
   create_at   DateTime?      @default(now())
-  update_at   DateTime?      @db.Date
+  update_at   DateTime       @updatedAt
   courses     Courses[]
 
 
@@ -59,17 +59,29 @@ model Admin {
 }
 
 model Courses {
-  id String @id @default(uuid())
-  name String @unique
-  price Decimal
+  id          String    @id @default(uuid())
+  name        String    @unique
+  price       Decimal
   description String
-  cover String
-  duration String
-  created_at DateTime? @default(now())
-  update_at DateTime?  @updatedAt
-  category Category @relation(fields: [category_id], references: [id])
-
+  cover       String
+  duration    Int 
+  created_at  DateTime? @default(now())
+  update_at   DateTime? @updatedAt
+  category    Category  @relation(fields: [category_id], references: [id])
   category_id String
+  chapters    Chapters[]
 
   @@map("courses")
+}
+
+model Chapters {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  duration    Int 
+  created_at  DateTime? @default(now())
+  update_at   DateTime? @updatedAt
+  courses     Courses  @relation(fields: [courses_id], references: [id])
+  courses_id  String
+
+  @@map("chapters")
 }
