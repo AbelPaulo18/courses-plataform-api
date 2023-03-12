@@ -72,6 +72,55 @@
 					}
 				}
 			}
+		},
+		"/courses": {
+			"post": {
+				"tags": ["Courses"],
+				"summary": "Create a course",
+				"description": "Create a new Course",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#definitions/Courses"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"400": {
+						"description": "Course already exists"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Courses": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"price": {
+					"type": "number"
+				},
+				"description": {
+					"type": "string"
+				},
+				"cover": {
+					"type": "string"
+				},
+				"duration": {
+					"type": "number"
+				},
+				"category_id": {
+					"type": "string"
+				}
+			}
 		}
 	}
 }
