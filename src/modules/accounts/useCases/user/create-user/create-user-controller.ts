@@ -6,7 +6,7 @@ export class CreateUserController {
 	constructor(private createUserUseCase: CreateUserUseCase) {}
 
 	async handle(request: Request, response: Response, next: NextFunction) {
-		const { name, email, password, phone_number } = request.body
+		const { name, email, password, phone_number, role } = request.body
 
 		try {
 			await this.createUserUseCase.execute({
@@ -14,6 +14,7 @@ export class CreateUserController {
 				name,
 				password,
 				phone_number,
+				role,
 			})
 
 			response.status(HttpCode.CREATED).send()

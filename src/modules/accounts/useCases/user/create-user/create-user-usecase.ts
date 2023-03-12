@@ -12,6 +12,7 @@ export class CreateUserUseCase {
 		email,
 		password,
 		phone_number,
+		role,
 	}: ICreateUserDTO): Promise<void> {
 		const checkIfUserAlreadyExistsByEmail =
 			await this.userRepository.findByEmail(email)
@@ -32,6 +33,7 @@ export class CreateUserUseCase {
 			email,
 			password: hashedPassword,
 			phone_number,
+			role,
 		})
 	}
 }
