@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { HttpCode } from '../../../../errors/http-codes'
+import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateChapterUseCase } from './create-chapter-usecase'
 
 export class CreateChapterController {

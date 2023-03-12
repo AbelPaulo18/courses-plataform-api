@@ -1,6 +1,6 @@
 import { type } from 'os'
 import { z } from 'zod'
-import { ChapterRepository } from '../../repositories/implementations/chapter-repository'
+import { ChapterRepository } from '../../../repositories/implementations/chapter-repository'
 
 const createChapterSchema = z.object({
 	name: z.string().min(3),

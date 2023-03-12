@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createChapterController } from '../modules/courses/useCases/chapters'
+import { createChapterController } from '../modules/courses/useCases/chapters/create-chapter'
 
 const chapterRouter = Router()
 
