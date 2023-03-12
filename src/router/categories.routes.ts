@@ -10,8 +10,7 @@ const upload = multer({
 	dest: './temp',
 })
 
-categoriesRouter.use(ensureAuthenticated)
-categoriesRouter.post('/', (request, response, next) => {
+categoriesRouter.post('/', ensureAuthenticated, (request, response, next) => {
 	return createCategoryController.handle(request, response, next)
 })
 
