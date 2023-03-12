@@ -78,6 +78,7 @@ model Chapters {
   id          String    @id @default(uuid())
   name        String    
   duration    Int 
+  number      Int       @default(1)
   created_at  DateTime? @default(now())
   update_at   DateTime? @updatedAt
   courses     Courses   @relation(fields: [courses_id], references: [id])
