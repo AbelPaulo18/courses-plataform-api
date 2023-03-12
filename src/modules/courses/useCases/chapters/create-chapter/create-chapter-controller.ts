@@ -11,9 +11,14 @@ export class CreateChapterController {
 		next: NextFunction
 	): Promise<Response | void> {
 		try {
-			const { name, duration, courses_id } = request.body
+			const { name, duration, courses_id, number } = request.body
 
-			await this.createChapterUseCase.execute({ name, duration, courses_id })
+			await this.createChapterUseCase.execute({
+				name,
+				duration,
+				courses_id,
+				number,
+			})
 
 			return response.status(HttpCode.CREATED).send()
 		} catch (error) {

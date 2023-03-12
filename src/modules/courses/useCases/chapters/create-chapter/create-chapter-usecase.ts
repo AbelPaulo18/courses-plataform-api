@@ -8,8 +8,9 @@ export class CreateChapterUseCase {
 	constructor(private chapterRepository: ChapterRepository) {}
 
 	async execute(data: createChapterProps) {
-		const { name, duration, courses_id } = createChapterSchema.parse(data)
+		const { name, duration, courses_id, number } =
+			createChapterSchema.parse(data)
 
-		await this.chapterRepository.create({ name, duration, courses_id })
+		await this.chapterRepository.create({ name, duration, courses_id, number })
 	}
 }
