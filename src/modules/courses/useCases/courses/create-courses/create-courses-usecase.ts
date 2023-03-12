@@ -1,17 +1,9 @@
-import { z } from 'zod'
 import { AppError } from '../../../../../errors/AppError'
 import { ICoursesRepository } from '../../../repositories/icourses-repository'
-
-const createCoursesSchema = z.object({
-	name: z.string().min(3),
-	description: z.string().min(3),
-	duration: z.number().min(3),
-	price: z.number().min(0),
-	cover: z.string(),
-	category_id: z.string(),
-})
-
-type createCoursesProps = z.infer<typeof createCoursesSchema>
+import {
+	createCoursesProps,
+	createCoursesSchema,
+} from '../../../validations/courses/create-courses-validation'
 
 export class CreateCoursesUseCase {
 	constructor(private coursesRepository: ICoursesRepository) {}

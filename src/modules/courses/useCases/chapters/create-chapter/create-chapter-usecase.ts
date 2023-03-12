@@ -1,14 +1,8 @@
-import { type } from 'os'
-import { z } from 'zod'
 import { ChapterRepository } from '../../../repositories/implementations/chapter-repository'
-
-const createChapterSchema = z.object({
-	name: z.string().min(3),
-	duration: z.number().min(0),
-	courses_id: z.string(),
-})
-
-type createChapterProps = z.infer<typeof createChapterSchema>
+import {
+	createChapterProps,
+	createChapterSchema,
+} from '../../../validations/chapter/create-chapter-validation'
 
 export class CreateChapterUseCase {
 	constructor(private chapterRepository: ChapterRepository) {}

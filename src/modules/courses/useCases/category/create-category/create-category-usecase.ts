@@ -1,14 +1,10 @@
-import { z } from 'zod'
 import { AppError } from '../../../../../errors/AppError'
 
 import { ICategoryRepository } from '../../../repositories/icategory-repository'
-
-const createCategorySchema = z.object({
-	name: z.string().min(3),
-	description: z.string().min(3),
-})
-
-type createCategoryProps = z.infer<typeof createCategorySchema>
+import {
+	createCategoryProps,
+	createCategorySchema,
+} from '../../../validations/category/create-category-validation'
 
 export class CreateCategoryUseCase {
 	constructor(private categoryRepository: ICategoryRepository) {}
