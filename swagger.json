@@ -34,6 +34,24 @@
 				}
 			}
 		},
+		"/users": {
+			"get": {
+				"tags": ["User"],
+				"summary": "Gets all users",
+				"description": "Lists all registered user",
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#definitions/User-List"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/categories": {
 			"post": {
 				"tags": ["Category"],
@@ -161,6 +179,35 @@
 				},
 				"phone_number": {
 					"type": "string"
+				}
+			}
+		},
+		"User-List": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"phone_number": {
+						"type": "string"
+					},
+					"Created_at": {
+						"type": "string"
+					},
+					"updated_at": {
+						"type": "string"
+					}
 				}
 			}
 		},
