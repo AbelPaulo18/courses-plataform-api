@@ -102,6 +102,23 @@
 						"description": "Course already exists"
 					}
 				}
+			},
+			"get": {
+				"tags": ["Courses"],
+				"summary": "Get all courses",
+				"description": "List all registered courses",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#definitions/Courses-List"
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	},
@@ -141,6 +158,32 @@
 				},
 				"category_id": {
 					"type": "string"
+				}
+			}
+		},
+		"Courses-List": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number"
+					},
+					"description": {
+						"type": "string"
+					},
+					"cover": {
+						"type": "string"
+					},
+					"duration": {
+						"type": "number"
+					},
+					"category_id": {
+						"type": "string"
+					}
 				}
 			}
 		}
