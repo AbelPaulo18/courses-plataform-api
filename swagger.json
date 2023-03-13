@@ -18,19 +18,7 @@
 					"content": {
 						"application/json": {
 							"schema": {
-								"type": "object",
-								"properties": {
-									"name": {
-										"type": "string"
-									},
-									"description": {
-										"type": "string"
-									}
-								},
-								"example": {
-									"name": "Category test",
-									"description": "test description"
-								}
+								"$ref": "#definitions/Category"
 							}
 						}
 					}
@@ -73,6 +61,25 @@
 				}
 			}
 		},
+		"/categories/rel-courses": {
+			"get": {
+				"tags": ["Category"],
+				"summary": "Get all category with related courses",
+				"description": "Get all category with related courses",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#definitions/Categories"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/courses": {
 			"post": {
 				"tags": ["Courses"],
@@ -99,6 +106,21 @@
 		}
 	},
 	"definitions": {
+		"Category": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				}
+			},
+			"example": {
+				"name": "Category test",
+				"description": "test description"
+			}
+		},
 		"Courses": {
 			"type": "object",
 			"properties": {
