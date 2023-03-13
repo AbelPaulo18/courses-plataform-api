@@ -9,6 +9,11 @@ export class UserRepository implements IUsersRepository {
 	constructor() {
 		this.repository = prisma.user
 	}
+	async listAll(): Promise<User[] | null> {
+		const users = await this.repository.findMany()
+
+		return users
+	}
 
 	async findByEmail(email: string): Promise<User | null> {
 		const user = await this.repository.findUnique({ where: { email } })
