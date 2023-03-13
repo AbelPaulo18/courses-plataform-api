@@ -9,6 +9,7 @@ export interface IUpdateUserRequest {
 
 export interface IUsersRepository {
 	create(data: ICreateUserDTO): Promise<void>
+	listAll(): Promise<User[] | null>
 	updateField(data: IUpdateUserRequest): Promise<void>
 	findById(id: string): Promise<User | null>
 	findByEmail(email: string): Promise<User | null>
