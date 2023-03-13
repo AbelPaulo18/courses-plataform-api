@@ -9,7 +9,7 @@ import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
 const usersRouter = Router()
 
-const uploadAvatar = multer(uploadConfig.upload('./temp/avatar'))
+const uploadAvatar: multer.Multer = multer(uploadConfig.upload('./temp/avatar'))
 
 usersRouter.post('/register', (request, response, next) => {
 	const createUser = createUserController
