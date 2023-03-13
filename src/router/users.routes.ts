@@ -6,6 +6,7 @@ import { createUserController } from '../modules/accounts/useCases/user/create-u
 import { updateUserAvatarController } from '../modules/accounts/useCases/user/updateUserAvatar'
 import uploadConfig from '../config/upload'
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
+import { listUsersController } from '../modules/accounts/useCases/user/list-users'
 
 const usersRouter = Router()
 
@@ -15,6 +16,10 @@ usersRouter.post('/register', (request, response, next) => {
 	const createUser = createUserController
 
 	createUser.handle(request, response, next)
+})
+
+usersRouter.get('/', (request, response, next) => {
+	listUsersController.handle(request, response, next)
 })
 
 usersRouter.patch(
