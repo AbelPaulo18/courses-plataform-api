@@ -10,6 +10,30 @@
 		}
 	},
 	"paths": {
+		"/users/register": {
+			"post": {
+				"tags": ["User"],
+				"summary": "Register user",
+				"description": "Create a user",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#definitions/User"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"400": {
+						"description": "Invalid credentials"
+					}
+				}
+			}
+		},
 		"/categories": {
 			"post": {
 				"tags": ["Category"],
@@ -123,6 +147,23 @@
 		}
 	},
 	"definitions": {
+		"User": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"phone_number": {
+					"type": "string"
+				}
+			}
+		},
 		"Category": {
 			"type": "object",
 			"properties": {
