@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
+import { AppError } from '../../../../../errors/AppError'
 import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateUserUseCase } from './create-user-usecase'
 
@@ -19,6 +20,12 @@ export class CreateUserController {
 
 			response.status(HttpCode.CREATED).send()
 		} catch (error) {
+			if (error?.name == 'ZodError') {
+				throw new AppError({
+					message: error?.message,
+					statusCode: HttpCode.BAD_REQUEST,
+				})
+			}
 			next(error)
 		}
 	}
