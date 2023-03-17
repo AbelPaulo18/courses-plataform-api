@@ -25,15 +25,12 @@ export class CreateCoursesController {
 
 			return response.status(HttpCode.CREATED).send()
 		} catch (error) {
-			if (error?.name == 'ZodError') {
-				next(
-					new AppError({
-						message: error?.message,
-						statusCode: HttpCode.BAD_REQUEST,
-					})
-				)
-			}
-			next(error)
+			next(
+				new AppError({
+					message: error?.message,
+					statusCode: HttpCode.BAD_REQUEST,
+				})
+			)
 		}
 	}
 }
