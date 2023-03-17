@@ -1,7 +1,7 @@
 import { AppError } from './AppError'
 
 process.on('unhandledRejection', (reason: Error | any) => {
-	throw new Error(reason.message)
+	throw new AppError({ message: reason.message })
 })
 
 process.on('uncaughtException', (error: Error) => {
