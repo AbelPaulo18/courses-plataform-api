@@ -1,9 +1,9 @@
-import { AppError } from '../../../../../errors/AppError'
-import { ICoursesRepository } from '../../../repositories/icourses-repository'
+import { AppError } from '@errors/AppError'
+import { ICoursesRepository } from '@modules/courses/repositories/icourses-repository'
 import {
 	createCoursesProps,
 	createCoursesSchema,
-} from '../../../validations/courses/create-courses-validation'
+} from '@modules/courses/validations/courses/create-courses-validation'
 
 export class CreateCoursesUseCase {
 	constructor(private coursesRepository: ICoursesRepository) {}

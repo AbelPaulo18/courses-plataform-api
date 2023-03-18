@@ -1,8 +1,6 @@
-import { Courses as courses } from '@prisma/client'
-
-import { prisma } from '../../../../prisma'
-import { ICoursesDTO } from '../../dtos/courses-dto'
-//import { Courses } from '../../entities/Courses'
+import { ICoursesDTO } from '@modules/courses/dtos/courses-dto'
+import { Courses } from '@modules/courses/entities/courses'
+import { prisma } from '@prisma/index'
 import { ICoursesRepository } from '../icourses-repository'
 
 export class CoursesRepository implements ICoursesRepository {
@@ -32,7 +30,7 @@ export class CoursesRepository implements ICoursesRepository {
 		})
 	}
 
-	async findByName(name: string): Promise<courses | null> {
+	async findByName(name: string): Promise<Courses | null> {
 		const course = await this.repository.findUnique({
 			where: { name },
 		})
@@ -40,7 +38,7 @@ export class CoursesRepository implements ICoursesRepository {
 		return course
 	}
 
-	async list(): Promise<courses[]> {
+	async list(): Promise<Courses[]> {
 		const all_courses = await this.repository.findMany()
 
 		return all_courses

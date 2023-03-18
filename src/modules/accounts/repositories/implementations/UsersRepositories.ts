@@ -1,7 +1,7 @@
 //import { User } from '@prisma/client'
-import { prisma } from '../../../../prisma'
-import { ICreateUserDTO } from '../../dtos/ICreateUserDTO'
-import { User } from '../../entities/User'
+import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
+import { User } from '@modules/accounts/entities/User'
+import { prisma } from '@prisma/index'
 import { IUpdateUserRequest, IUsersRepository } from '../IUsersRepository'
 
 export class UserRepository implements IUsersRepository {

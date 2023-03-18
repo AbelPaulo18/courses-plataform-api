@@ -1,10 +1,9 @@
-import { AppError } from '../../../../../errors/AppError'
-
-import { ICategoryRepository } from '../../../repositories/icategory-repository'
+import { AppError } from '@errors/AppError'
+import { ICategoryRepository } from '@modules/courses/repositories/icategory-repository'
 import {
 	createCategoryProps,
 	createCategorySchema,
-} from '../../../validations/category/create-category-validation'
+} from '@modules/courses/validations/category/create-category-validation'
 
 export class CreateCategoryUseCase {
 	constructor(private categoryRepository: ICategoryRepository) {}

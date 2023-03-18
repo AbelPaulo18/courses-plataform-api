@@ -1,12 +1,10 @@
-import { AppError } from '../../../../../errors/AppError'
-
-import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO'
-import { HashHelper } from '../../../helpers/hash/hash-helper'
-import { IUsersRepository } from '../../../repositories/IUsersRepository'
+import { AppError } from '@errors/AppError'
+import { HashHelper } from '@modules/accounts/helpers/hash/hash-helper'
+import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
 import {
 	createUserProps,
 	createUserValidationSchema,
-} from '../../../validation/user/create-user-validation'
+} from '@modules/accounts/validation/user/create-user-validation'
 
 export class CreateUserUseCase {
 	constructor(private userRepository: IUsersRepository) {}

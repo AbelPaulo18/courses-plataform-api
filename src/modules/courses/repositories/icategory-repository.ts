@@ -1,6 +1,6 @@
-import { Courses } from '@prisma/client'
 import { ICategoryDTO } from '../dtos/category-dto'
-import { Category } from '../entities/Category'
+import { Category } from '../entities/category'
+import { Courses } from '../entities/courses'
 
 export interface ICategoryRepository {
 	create({ name, description }: ICategoryDTO): Promise<void>

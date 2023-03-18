@@ -1,7 +1,6 @@
-import { AppError } from '../../../../../errors/AppError'
-import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO'
-import { UserRepositoryInMemory } from '../../../repositories/in-memory/user-repository-in-memory'
-import { createUserProps } from '../../../validation/user/create-user-validation'
+import { AppError } from '@errors/AppError'
+import { UserRepositoryInMemory } from '@modules/accounts/repositories/in-memory/user-repository-in-memory'
+import { createUserProps } from '@modules/accounts/validation/user/create-user-validation'
 import { CreateUserUseCase } from '../create-user/create-user-usecase'
 import { AuthenticateUserUseCase } from './authenticate-user-usecase'
 

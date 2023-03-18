@@ -1,6 +1,6 @@
+import { AppError } from '@errors/AppError'
+import { HttpCode } from '@errors/http-codes'
 import { NextFunction, Request, Response } from 'express'
-import { AppError } from '../../../../../errors/AppError'
-import { HttpCode } from '../../../../../errors/http-codes'
 import { CreateCoursesUseCase } from './create-courses-usecase'
 
 export class CreateCoursesController {

@@ -1,6 +1,6 @@
-import { Chapters } from '@prisma/client'
-import { prisma } from '../../../../prisma'
-import { IChapterDTO } from '../../dtos/chapter-dto'
+import { IChapterDTO } from '@modules/courses/dtos/chapter-dto'
+import { Chapter } from '@modules/courses/entities/chapter'
+import { prisma } from '@prisma/index'
 import { IChapterRepository } from '../ichapter-repository'
 
 export class ChapterRepository implements IChapterRepository {
@@ -20,7 +20,7 @@ export class ChapterRepository implements IChapterRepository {
 		})
 	}
 
-	async findByName(name: string): Promise<Chapters | null> {
+	async findByName(name: string): Promise<Chapter | null> {
 		const chapter = await this.repository.findUnique({
 			where: { name },
 		})

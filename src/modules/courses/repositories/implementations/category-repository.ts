@@ -1,7 +1,7 @@
-import { Courses } from '@prisma/client'
-import { prisma } from '../../../../prisma'
-import { ICategoryDTO } from '../../dtos/category-dto'
-import { Category } from '../../entities/category'
+import { ICategoryDTO } from '@modules/courses/dtos/category-dto'
+import { Category } from '@modules/courses/entities/category'
+import { Courses } from '@modules/courses/entities/courses'
+import { prisma } from '@prisma/index'
 import { ICategoryRepository } from '../icategory-repository'
 
 export class CategoryRepository implements ICategoryRepository {

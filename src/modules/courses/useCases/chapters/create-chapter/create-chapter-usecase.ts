@@ -1,8 +1,8 @@
-import { ChapterRepository } from '../../../repositories/implementations/chapter-repository'
+import { ChapterRepository } from '@modules/courses/repositories/implementations/chapter-repository'
 import {
 	createChapterProps,
 	createChapterSchema,
-} from '../../../validations/chapter/create-chapter-validation'
+} from '@modules/courses/validations/chapter/create-chapter-validation'
 
 export class CreateChapterUseCase {
 	constructor(private chapterRepository: ChapterRepository) {}

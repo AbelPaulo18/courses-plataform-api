@@ -1,4 +1,4 @@
-import { CategoryRepository } from '../../../repositories/implementations/category-repository'
+import { CategoryRepository } from '@modules/courses/repositories/implementations/category-repository'
 
 export class ListCategoriesWithCoursesUseCase {
 	constructor(private categoryRepository: CategoryRepository) {}

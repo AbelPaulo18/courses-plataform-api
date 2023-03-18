@@ -1,5 +1,6 @@
+import { HttpCode } from '@errors/http-codes'
 import { NextFunction, Request, Response } from 'express'
-import { HttpCode } from '../../../../../errors/http-codes'
+
 import { UpdateUserAvatarUseCase } from './update-user-avatar-usecase'
 
 export class UpdateUserAvatarController {

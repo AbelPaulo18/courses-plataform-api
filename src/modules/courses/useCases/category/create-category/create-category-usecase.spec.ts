@@ -1,5 +1,5 @@
-import { AppError } from '../../../../../errors/AppError'
-import { CategoryRepositoryInMemory } from '../../../repositories/in-memory/category-repository-in-memory'
+import { AppError } from '@errors/AppError'
+import { CategoryRepositoryInMemory } from '@modules/courses/repositories/in-memory/category-repository-in-memory'
 import { CreateCategoryUseCase } from './create-category-usecase'
 
 let createCategoryUseCase: CreateCategoryUseCase
