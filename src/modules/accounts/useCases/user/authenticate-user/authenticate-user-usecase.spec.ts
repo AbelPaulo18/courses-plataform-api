@@ -1,6 +1,7 @@
 import { AppError } from '../../../../../errors/AppError'
 import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO'
 import { UserRepositoryInMemory } from '../../../repositories/in-memory/user-repository-in-memory'
+import { createUserProps } from '../../../validation/user/create-user-validation'
 import { CreateUserUseCase } from '../create-user/create-user-usecase'
 import { AuthenticateUserUseCase } from './authenticate-user-usecase'
 
@@ -17,12 +18,13 @@ describe('Authenticate user ', () => {
 		createUserUseCase = new CreateUserUseCase(userRepositoryInMemory)
 	})
 	it('should be able to authenticate an user ', async () => {
-		const user: ICreateUserDTO = {
+		const user: createUserProps = {
 			name: 'Mr. Jones',
 			email: 'jones@gmail.com',
 			password: 'strong_password',
+			confirm_password: 'strong_password',
 			phone_number: '930516122',
-			role: 'USER',
+			role: 'TEACHER',
 		}
 
 		await createUserUseCase.execute(user)
@@ -46,10 +48,11 @@ describe('Authenticate user ', () => {
 
 	it('should not be able to authenticate with incorrect password', () => {
 		expect(async () => {
-			const user: ICreateUserDTO = {
+			const user: createUserProps = {
 				name: 'Mr. Jones',
 				email: 'jones@gmail.com',
 				password: 'strong_password',
+				confirm_password: 'strong_password',
 				phone_number: '930516122',
 				role: 'USER',
 			}
@@ -60,6 +63,6 @@ describe('Authenticate user ', () => {
 				email: user.email,
 				password: 'incorrect password',
 			})
-		})
+		}).rejects.toBeInstanceOf(AppError)
 	})
 })
