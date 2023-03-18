@@ -1,4 +1,5 @@
-import { User } from '@prisma/client'
+//import { User } from '@prisma/client'
+import { User } from '../entities/User'
 import { ICreateUserDTO } from '../dtos/ICreateUserDTO'
 
 export interface IUpdateUserRequest {
