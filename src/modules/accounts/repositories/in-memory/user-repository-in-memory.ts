@@ -21,6 +21,8 @@ export class UserRepositoryInMemory implements IUsersRepository {
 			phone_number,
 			role,
 		})
+
+		this.users.push(user)
 	}
 
 	async listAll(): Promise<User[]> {
