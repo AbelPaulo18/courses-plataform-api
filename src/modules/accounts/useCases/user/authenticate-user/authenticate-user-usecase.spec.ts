@@ -1,0 +1,36 @@
+import { ICreateUserDTO } from '../../../dtos/ICreateUserDTO'
+import { UserRepositoryInMemory } from '../../../repositories/in-memory/user-repository-in-memory'
+import { CreateUserUseCase } from '../create-user/create-user-usecase'
+import { AuthenticateUserUseCase } from './authenticate-user-usecase'
+
+let authenticateUserUseCase: AuthenticateUserUseCase
+let userRepositoryInMemory: UserRepositoryInMemory
+let createUserUseCase: CreateUserUseCase
+
+describe('Authenticate user ', () => {
+	beforeEach(() => {
+		userRepositoryInMemory = new UserRepositoryInMemory()
+		authenticateUserUseCase = new AuthenticateUserUseCase(
+			userRepositoryInMemory
+		)
+		createUserUseCase = new CreateUserUseCase(userRepositoryInMemory)
+	})
+	it('should be able to authenticate an user ', async () => {
+		const user: ICreateUserDTO = {
+			name: 'Mr. Jones',
+			email: 'jones@gmail.com',
+			password: 'strong_password',
+			phone_number: '930516122',
+			role: 'USER',
+		}
+
+		await createUserUseCase.execute(user)
+
+		const response = await authenticateUserUseCase.execute({
+			email: user.email,
+			password: user.password,
+		})
+
+		expect(response).toHaveProperty('token')
+	})
+})
