@@ -96,4 +96,6 @@ model Users_Tokens {
   user_id         String
   expires_date    DateTime
   created_at      DateTime @default(now())
+
+  @@map("users_tokens")
 }
