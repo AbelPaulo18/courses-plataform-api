@@ -1,4 +1,4 @@
-import { ChapterRepository } from '@modules/courses/repositories/implementations/chapter-repository'
+import { ChapterRepository } from '@modules/courses/infra/prisma/repositories/chapter-repository'
 import { CreateChapterController } from './create-chapter-controller'
 import { CreateChapterUseCase } from './create-chapter-usecase'
 

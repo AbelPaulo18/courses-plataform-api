@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { createCoursesController } from '../modules/courses/useCases/courses/create-courses'
-import { listCoursesController } from '../modules/courses/useCases/courses/list-courses'
+import { createCoursesController } from '@modules/courses/useCases/courses/create-courses'
+import { listCoursesController } from '@modules/courses/useCases/courses/list-courses'
 
 const coursesRouter = Router()
 

@@ -1,6 +1,6 @@
 import { IChapterDTO } from '@modules/courses/dtos/chapter-dto'
 import { Chapter } from '@modules/courses/entities/chapter'
-import { prisma } from '@prisma/index'
+import { prisma } from '@shared/infra/prisma/index'
 import { IChapterRepository } from '../ichapter-repository'
 
 export class ChapterRepository implements IChapterRepository {

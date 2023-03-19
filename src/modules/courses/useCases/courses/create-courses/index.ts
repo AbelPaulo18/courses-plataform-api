@@ -1,4 +1,4 @@
-import { CoursesRepository } from '@modules/courses/repositories/implementations/courses-repository'
+import { CoursesRepository } from '@modules/courses/infra/prisma/repositories/courses-repository'
 import { CreateCoursesController } from './create-courses-controller'
 import { CreateCoursesUseCase } from './create-courses-usecase'
 

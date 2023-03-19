@@ -1,14 +1,14 @@
 import 'express-async-errors'
 import express, { NextFunction, Request, Response } from 'express'
 
-import './errors/processes'
+import '@shared/errors/processes'
 
-import { router } from './router'
+import { router } from '@shared/infra/http/router'
 import swaggerUi from 'swagger-ui-express'
 
-import swaggerFile from '../swagger.json'
-import { errorHandler } from './errors/error-handler'
-import { HttpCode } from './errors/http-codes'
+import swaggerFile from '../../../swagger.json'
+import { errorHandler } from '@shared/errors/error-handler'
+import { HttpCode } from '@shared/errors/http-codes'
 
 const server = express()
 

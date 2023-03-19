@@ -1,6 +1,6 @@
 import { Category } from '@modules/courses/entities/category'
-import { CategoryRepository } from '@modules/courses/repositories/implementations/category-repository'
-import { prisma } from '@prisma/index'
+import { CategoryRepository } from '@modules/courses/infra/prisma/repositories/category-repository'
+import { prisma } from '@shared/infra/prisma/index'
 
 export class ListCategoriesUseCase {
 	constructor(private categoryRepositories: CategoryRepository) {}

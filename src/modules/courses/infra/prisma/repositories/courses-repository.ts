@@ -1,6 +1,6 @@
 import { ICoursesDTO } from '@modules/courses/dtos/courses-dto'
 import { Courses } from '@modules/courses/entities/courses'
-import { prisma } from '@prisma/index'
+import { prisma } from '@shared/infra/prisma/index'
 import { ICoursesRepository } from '../icourses-repository'
 
 export class CoursesRepository implements ICoursesRepository {

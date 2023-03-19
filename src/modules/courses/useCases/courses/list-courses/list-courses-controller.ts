@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { HttpCode } from '../../../../../errors/http-codes'
+import { HttpCode } from '@errors/http-codes'
 import { ListCoursesUseCase } from './list-courses-usecase'
 
 export class ListCoursesController {

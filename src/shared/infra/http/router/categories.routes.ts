@@ -2,9 +2,9 @@ import { Router } from 'express'
 import multer from 'multer'
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
-import { createCategoryController } from '../modules/courses/useCases/category/create-category'
-import { listCategoriesControllers } from '../modules/courses/useCases/category/list-categories'
-import { listCategoriesWithCoursesController } from '../modules/courses/useCases/category/list-categories-courses'
+import { createCategoryController } from '@modules/courses/useCases/category/create-category'
+import { listCategoriesControllers } from '@modules/courses/useCases/category/list-categories'
+import { listCategoriesWithCoursesController } from '@modules/courses/useCases/category/list-categories-courses'
 
 const categoriesRouter = Router()
 const upload = multer({

@@ -1,4 +1,4 @@
-import { CategoryRepository } from '@modules/courses/repositories/implementations/category-repository'
+import { CategoryRepository } from '@modules/courses/infra/prisma/repositories/category-repository'
 import { ListCategoriesWithCoursesController } from './list-categories-courses-controller'
 import { ListCategoriesWithCoursesUseCase } from './list-categories-courses-usecase'
 

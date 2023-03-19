@@ -1,4 +1,4 @@
-import { UserRepository } from '@modules/accounts/repositories/implementations/UsersRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
 import { UpdateUserAvatarController } from './update-user-avatar-controller'
 import { UpdateUserAvatarUseCase } from './update-user-avatar-usecase'
 

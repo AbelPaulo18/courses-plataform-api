@@ -1,5 +1,5 @@
 import { User } from '@modules/accounts/entities/User'
-import { UserRepository } from '@modules/accounts/repositories/implementations/UsersRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
 
 export class ListUsersUseCase {
 	constructor(private userRepository: UserRepository) {}

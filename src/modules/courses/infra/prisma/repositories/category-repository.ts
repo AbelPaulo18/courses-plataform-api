@@ -1,8 +1,8 @@
 import { ICategoryDTO } from '@modules/courses/dtos/category-dto'
 import { Category } from '@modules/courses/entities/category'
 import { Courses } from '@modules/courses/entities/courses'
-import { prisma } from '@prisma/index'
-import { ICategoryRepository } from '../icategory-repository'
+import { prisma } from '@shared/infra/prisma/index'
+import { ICategoryRepository } from '../../../repositories/icategory-repository'
 
 export class CategoryRepository implements ICategoryRepository {
 	private repository

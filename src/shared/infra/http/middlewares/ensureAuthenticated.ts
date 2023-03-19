@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
-import { AppError } from '../errors/AppError'
-import { HttpCode } from '../errors/http-codes'
-import { UserRepository } from '../modules/accounts/repositories/implementations/UsersRepositories'
+import { AppError } from '@shared/errors/AppError'
+import { HttpCode } from '@shared/errors/http-codes'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
 
 interface IPayload {
 	sub: string
