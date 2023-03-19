@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "",
-		"start:dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --ignore-watch node_modules --transpile-only ./src/server.ts",
+		"start:dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --ignore-watch node_modules --transpile-only ./src/shared/infra/http/server.ts",
 		"prisma": "yarn prisma",
 		"prisma:gen": "prisma generate",
 		"test": "jest"
