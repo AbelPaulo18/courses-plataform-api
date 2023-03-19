@@ -1,10 +1,11 @@
 import 'express-async-errors'
 import express, { NextFunction, Request, Response } from 'express'
 
+import swaggerUi from 'swagger-ui-express'
+
 import '@shared/errors/processes'
 
 import { router } from '@shared/infra/http/router'
-import swaggerUi from 'swagger-ui-express'
 
 import swaggerFile from '../../../swagger.json'
 import { errorHandler } from '@shared/errors/error-handler'
