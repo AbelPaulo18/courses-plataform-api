@@ -7,9 +7,8 @@
 		"paths": {
 			"@modules/*": ["modules/*"],
 			"@config/*": ["config/*"],
-			"@errors/*": ["errors/*"],
-			"@middleware/*": ["middlewares/*"],
-			"@prisma/*": ["prisma/*"],
+			"@shared/*": ["shared/*"],
+			"@errors/*": ["shared/errors/*"],
 			"@utils/*": ["utils/*"]
 		},
 		"forceConsistentCasingInFileNames": true,
