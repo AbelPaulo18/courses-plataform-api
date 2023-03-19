@@ -39,6 +39,8 @@ model User {
   role          UserRole?   @default(USER)
   create_at     DateTime?   @default(now())
 
+  User_tokens  Users_Tokens[]
+
   @@map("users")
 }
 
@@ -85,4 +87,13 @@ model Chapters {
   courses_id  String
 
   @@map("chapters")
+}
+
+model Users_Tokens {
+  id              String @id @default(uuid())
+  refresh_token   String
+  User            User @relation(fields: [user_id], references: [id])
+  user_id         String
+  expires_date    DateTime
+  created_at      DateTime @default(now())
 }
