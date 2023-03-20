@@ -3,6 +3,8 @@ import { verify } from 'jsonwebtoken'
 import { AppError } from '@shared/errors/AppError'
 import { HttpCode } from '@shared/errors/http-codes'
 import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
+import auth from '@config/auth'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
 
 interface IPayload {
 	sub: string
@@ -14,6 +16,7 @@ export async function ensureAuthenticated(
 	next: NextFunction
 ) {
 	const authHeader = request.headers.authorization
+	const userTokenRepository = new UsersTokensRepositories()
 
 	if (!authHeader)
 		throw new AppError({
@@ -27,12 +30,13 @@ export async function ensureAuthenticated(
 	try {
 		const { sub: user_id } = verify(
 			token,
-			'664b47be371ce97aed289b894072bd892990d8bd'
+			auth.secret_refresh_token
 		) as IPayload
 
-		const usersRepository = new UserRepository()
-
-		const user = await usersRepository.findById(user_id)
+		const user = await userTokenRepository.findByUserIdAndRefreshToken(
+			user_id,
+			token
+		)
 
 		if (!user)
 			throw new AppError({
