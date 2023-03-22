@@ -5,7 +5,7 @@ import { ICreateUserDTO } from '../dtos/ICreateUserDTO'
 export interface IUpdateUserRequest {
 	user_id: string
 	data: any
-	column: 'name' | 'avatar' | 'email' | 'phone_number'
+	column: 'name' | 'avatar' | 'email' | 'phone_number' | 'password'
 }
 
 export interface IUsersRepository {
