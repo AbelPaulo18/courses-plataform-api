@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 import { v4 as uuidV4 } from 'uuid'
 
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
@@ -18,6 +20,16 @@ export class SendForgotPasswordMailUseCase {
 
 		if (!user) throw new AppError({ message: 'User does not exists!' })
 
+		const templatePath = resolve(
+			__dirname,
+			'..',
+			'..',
+			'..',
+			'views',
+			'emails',
+			'forgotPassword.hbs'
+		)
+
 		const token = uuidV4()
 
 		const expires_date = addHours(4)
@@ -28,10 +40,16 @@ export class SendForgotPasswordMailUseCase {
 			expires_date,
 		})
 
+		const variables = {
+			name: user.name,
+			link: `${process.env.FORGOT_MAIL_URL}${token}`,
+		}
+
 		await this.mailProvider.sendMail(
 			email,
 			'Password Recover',
-			`This is the link to recover your password ${token}`
+			variables,
+			templatePath
 		)
 	}
 }
