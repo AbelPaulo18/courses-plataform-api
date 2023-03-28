@@ -85,6 +85,7 @@ model Chapters {
   created_at  DateTime? @default(now())
   update_at   DateTime? @updatedAt
   courses     Courses   @relation(fields: [courses_id], references: [id])
+  videos      Videos[]   
   courses_id  String
   status      Boolean   @default(false)
 
@@ -100,4 +101,16 @@ model Users_Tokens {
   created_at      DateTime @default(now())
 
   @@map("users_tokens")
+}
+
+model Videos {
+  id            String    @id @default(uuid())
+  name          String  
+  description   String? 
+  Chapter       Chapters  @relation(fields: [chapter_id], references: [id])
+  chapter_id    String
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+
+  @@map("videos")
 }
