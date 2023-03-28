@@ -111,6 +111,13 @@ model Videos {
   chapter_id    String
   created_at    DateTime  @default(now())
   updated_at    DateTime  @updatedAt
+  player_links  PlayerLinks[]
 
   @@map("videos")
+}
+
+model PlayerLinks {
+  id          String @id @default(uuid())
+  Video       Videos @relation(fields: [video_id], references: [id])
+  video_id    String
 }
