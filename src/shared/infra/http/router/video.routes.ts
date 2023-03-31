@@ -6,3 +6,5 @@ const videosRouter = Router()
 videosRouter.post('/', (request, response, next) => {
 	createVideoController.handle(request, response, next)
 })
+
+export { videosRouter }
