@@ -107,7 +107,7 @@ model Users_Tokens {
 model Videos {
   id            String    @id @default(uuid())
   name          String  
-  number        Decimal   @default(1)
+  number        Int   @default(1)
   description   String? 
   Chapter       Chapters  @relation(fields: [chapter_id], references: [id])
   chapter_id    String
