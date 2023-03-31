@@ -90,7 +90,7 @@ model Chapters {
   status      Boolean   @default(false)
 
   @@map("chapters")
-  @@unique([number, courses_id])
+  @@unique([number, courses_id, name])
 }
 
 model Users_Tokens {
@@ -116,7 +116,7 @@ model Videos {
   player_links  PlayerLinks[]
 
   @@map("videos")
-  @@unique([number, chapter_id])
+  @@unique([number, chapter_id, name])
 }
 
 model PlayerLinks {
