@@ -9,6 +9,10 @@ export class VideoRepository implements IVideosRepository {
 	async create(data: IVideosDTO): Promise<void> {
 		await this.repository.create({ data })
 	}
+	async findById(id: string): Promise<Videos> {
+		const video = await this.repository.findFirst({ where: { id } })
+		return video
+	}
 	async findByName(name: string): Promise<Videos> {
 		const video = await this.repository.findFirst({ where: { name } })
 		return video
