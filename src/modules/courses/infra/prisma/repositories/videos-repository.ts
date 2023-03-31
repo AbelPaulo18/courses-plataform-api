@@ -13,8 +13,14 @@ export class VideoRepository implements IVideosRepository {
 		const video = await this.repository.findFirst({ where: { id } })
 		return video
 	}
-	async findByName(name: string): Promise<Videos> {
-		const video = await this.repository.findFirst({ where: { name } })
+	async findByUnique(
+		name: string,
+		chapter_id: string,
+		number: number
+	): Promise<Videos> {
+		const video = await this.repository.findFirst({
+			where: { name, number, chapter_id },
+		})
 		return video
 	}
 
