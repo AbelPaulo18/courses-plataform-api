@@ -5,6 +5,7 @@ export class Videos {
 	name: string
 	description?: string
 	chapter_id: string
+	number: number
 	created_at: Date
 	updated_at: Date
 
