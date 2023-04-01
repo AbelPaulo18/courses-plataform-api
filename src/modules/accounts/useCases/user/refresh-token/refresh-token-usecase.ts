@@ -11,10 +11,14 @@ interface IPayload {
 	email: string
 }
 
+interface ITokenResponse {
+	token: string
+	refresh_token: string
+}
 export class RefreshTokenUseCase {
 	constructor(private usersTokensRepositories: UsersTokensRepositories) {}
 
-	async execute(token: string) {
+	async execute(token: string): Promise<ITokenResponse> {
 		const { sub, email } = verify(token, auth.secret_refresh_token) as IPayload
 
 		const user_id = sub
@@ -37,6 +41,11 @@ export class RefreshTokenUseCase {
 			.add(auth.expires_in_refresh_token_days, 'days')
 			.toDate()
 
+		const newToken = sign({}, auth.user_secret_token, {
+			subject: user_id,
+			expiresIn: auth.expires_in_token,
+		})
+
 		const refresh_token = sign({ email }, auth.secret_refresh_token, {
 			subject: sub,
 			expiresIn: auth.expires_in_refresh_token,
@@ -48,6 +57,9 @@ export class RefreshTokenUseCase {
 			user_id: sub,
 		})
 
-		return refresh_token
+		return {
+			token: newToken,
+			refresh_token,
+		}
 	}
 }
