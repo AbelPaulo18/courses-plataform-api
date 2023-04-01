@@ -91,7 +91,7 @@ model Chapters {
   status      Boolean   @default(false)
 
   @@map("chapters")
-  @@unique(fields:[number, courses_id, name], name: "chapter_unique")
+  @@unique(fields:[number, courses_id], name: "chapter_unique")
 }
 
 model Users_Tokens {
