@@ -19,7 +19,12 @@ export class VideoRepository implements IVideosRepository {
 		number: number
 	): Promise<Videos> {
 		const video = await this.repository.findFirst({
-			where: { number, chapter_id, OR: { number, chapter_id, name } },
+			where: {
+				OR: [
+					{ number, chapter_id },
+					{ number, chapter_id, name },
+				],
+			},
 		})
 		return video
 	}
