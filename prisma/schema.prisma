@@ -134,4 +134,9 @@ model Reviews {
   comment   String 
   Courses   Courses @relation(fields: [course_id], references: [id])
   course_id String 
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("reviews")
 }
