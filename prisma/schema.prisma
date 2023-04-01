@@ -72,6 +72,7 @@ model Courses {
   category    Category  @relation(fields: [category_id], references: [id])
   category_id String
   chapters    Chapters[]
+  reviews     Reviews[]
   status      Boolean   @default(false)
 
   @@map("courses")
@@ -90,7 +91,7 @@ model Chapters {
   status      Boolean   @default(false)
 
   @@map("chapters")
-  @@unique([number, courses_id, name])
+  @@unique(fields:[number, courses_id, name], name: "chapter_unique")
 }
 
 model Users_Tokens {
@@ -116,7 +117,7 @@ model Videos {
   player_links  PlayerLinks[]
 
   @@map("videos")
-  @@unique([number, chapter_id, name])
+  @@unique(fields:[number, chapter_id, name], name: "video_unique")
 }
 
 model PlayerLinks {
@@ -125,4 +126,12 @@ model PlayerLinks {
   video_id    String
 
   @@map("player_links")
+}
+
+model Reviews {
+  id        String  @id @default(uuid())
+  rating    Int     @default(0)
+  comment   String 
+  Courses   Courses @relation(fields: [course_id], references: [id])
+  course_id String 
 }
