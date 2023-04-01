@@ -28,7 +28,7 @@ export class ChapterRepository implements IChapterRepository {
 	}
 
 	async findByName(name: string): Promise<Chapter | null> {
-		const chapter = await this.repository.findUnique({
+		const chapter = await this.repository.findFirst({
 			where: { name },
 		})
 
