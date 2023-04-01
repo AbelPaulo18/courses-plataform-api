@@ -6,8 +6,20 @@ import { prisma } from '@shared/infra/prisma'
 export class VideoRepository implements IVideosRepository {
 	repository = prisma.videos
 
-	async create(data: IVideosDTO): Promise<void> {
-		await this.repository.create({ data })
+	async create({
+		name,
+		chapter_id,
+		number,
+		description,
+	}: IVideosDTO): Promise<void> {
+		await this.repository.create({
+			data: {
+				name,
+				chapter_id,
+				number,
+				description,
+			},
+		})
 	}
 	async findById(id: string): Promise<Videos> {
 		const video = await this.repository.findFirst({ where: { id } })
