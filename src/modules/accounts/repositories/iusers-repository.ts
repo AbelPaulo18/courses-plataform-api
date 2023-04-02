@@ -11,7 +11,7 @@ export interface IUsersRepository {
 	create(data: ICreateUserDTO): Promise<void>
 	listAll(): Promise<User[] | null>
 	updateField(data: IUpdateUserRequest): Promise<void>
-	findById(id: string): Promise<User | null>
-	findByEmail(email: string): Promise<User | null>
-	findByPhoneNumber(phone: string): Promise<User | null>
+	findById(id: string): Promise<User | null | undefined>
+	findByEmail(email: string): Promise<User | null | undefined>
+	findByPhoneNumber(phone: string): Promise<User | null | undefined>
 }
