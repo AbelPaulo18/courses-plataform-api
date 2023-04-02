@@ -3,16 +3,20 @@ import { UserRepositoryInMemory } from '@modules/accounts/repositories/in-memory
 import { createUserProps } from '@modules/accounts/validation/user/create-user-validation'
 import { CreateUserUseCase } from '../create-user/create-user-usecase'
 import { AuthenticateUserUseCase } from './authenticate-user-usecase'
+import { UsersTokensRepositoryInMemory } from '@modules/accounts/repositories/in-memory/users-tokens-repository-in-memory'
 
 let authenticateUserUseCase: AuthenticateUserUseCase
 let userRepositoryInMemory: UserRepositoryInMemory
+let usersTokensRepositoryInMemory: UsersTokensRepositoryInMemory
 let createUserUseCase: CreateUserUseCase
 
 describe('Authenticate user ', () => {
 	beforeEach(() => {
 		userRepositoryInMemory = new UserRepositoryInMemory()
+		usersTokensRepositoryInMemory = new UsersTokensRepositoryInMemory()
 		authenticateUserUseCase = new AuthenticateUserUseCase(
-			userRepositoryInMemory
+			userRepositoryInMemory,
+			usersTokensRepositoryInMemory
 		)
 		createUserUseCase = new CreateUserUseCase(userRepositoryInMemory)
 	})
