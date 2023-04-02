@@ -42,7 +42,7 @@ export class ChapterRepository implements IChapterRepository {
 		})
 	}
 
-	async findByName(name: string): Promise<Chapters | null | null> {
+	async findByName(name: string): Promise<Chapters | null> {
 		const chapter = await this.repository.findFirst({
 			where: { name },
 		})
