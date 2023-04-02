@@ -1,5 +1,5 @@
-import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
-import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/users-repositories'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/users-token-repositories'
 import { EtherealMailProvider } from '@shared/providers/mail-provider/implementations/ethereal-mail-provider'
 import { SendForgotPasswordMailController } from './send-forgot-password-mail-controller'
 import { SendForgotPasswordMailUseCase } from './send-forgot-password-mail-usecase'

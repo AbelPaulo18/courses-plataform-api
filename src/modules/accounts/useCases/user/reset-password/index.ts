@@ -1,5 +1,5 @@
-import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
-import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/users-repositories'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/users-token-repositories'
 import { ResetPasswordController } from './reset-password-controller'
 import { ResetPasswordUseCase } from './reset-password-usecase'
 

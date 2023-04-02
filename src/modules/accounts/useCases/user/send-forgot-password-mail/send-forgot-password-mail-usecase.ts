@@ -2,7 +2,7 @@ import { resolve } from 'path'
 
 import { v4 as uuidV4 } from 'uuid'
 
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
+import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
 import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
 import { AppError } from '@shared/errors/AppError'
 import { addHours } from '@utils/dayjs-date-provider'

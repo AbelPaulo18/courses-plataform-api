@@ -1,4 +1,4 @@
-import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/users-repositories'
 import { ListUsersController } from './list-users-controller'
 import { ListUsersUseCase } from './list-users-usecase'
 

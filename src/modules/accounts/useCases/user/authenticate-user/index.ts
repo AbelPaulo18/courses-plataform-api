@@ -1,5 +1,5 @@
-import { UserRepository } from '@modules/accounts/infra/prisma/repositories/UsersRepositories'
-import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
+import { UserRepository } from '@modules/accounts/infra/prisma/repositories/users-repositories'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/users-token-repositories'
 import { AuthenticateUserController } from './authenticate-user-controller'
 import { AuthenticateUserUseCase } from './authenticate-user-usecase'
 

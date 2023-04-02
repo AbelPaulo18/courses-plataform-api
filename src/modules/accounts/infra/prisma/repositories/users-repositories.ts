@@ -1,11 +1,12 @@
 //import { User } from '@prisma/client'
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
-import { User } from '@modules/accounts/entities/User'
+
 import { prisma } from '@shared/infra/prisma/index'
 import {
 	IUpdateUserRequest,
 	IUsersRepository,
-} from '../../../repositories/IUsersRepository'
+} from '../../../repositories/iusers-repository'
+import { User } from '@prisma/client'
 
 export class UserRepository implements IUsersRepository {
 	private repository

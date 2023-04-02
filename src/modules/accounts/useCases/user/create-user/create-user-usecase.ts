@@ -1,6 +1,6 @@
 import { AppError } from '@errors/AppError'
 import { HashHelper } from '@modules/accounts/helpers/hash/hash-helper'
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
+import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
 import {
 	createUserProps,
 	createUserValidationSchema,

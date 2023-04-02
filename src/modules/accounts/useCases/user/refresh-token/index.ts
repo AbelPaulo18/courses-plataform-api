@@ -1,4 +1,4 @@
-import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/users-token-repositories'
 import { RefreshTokenController } from './refresh-token-controller'
 import { RefreshTokenUseCase } from './refresh-token-usecase'
 

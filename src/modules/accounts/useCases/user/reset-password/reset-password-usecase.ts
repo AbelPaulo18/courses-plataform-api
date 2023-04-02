@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt'
 
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
+import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
 import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
 import { AppError } from '@shared/errors/AppError'
 import { compareIfBefore, dateNow } from '@utils/dayjs-date-provider'

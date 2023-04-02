@@ -1,5 +1,5 @@
 import { User } from '@modules/accounts/entities/User'
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
+import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
 import { deleteFile } from '@utils/file'
 
 interface IRequest {

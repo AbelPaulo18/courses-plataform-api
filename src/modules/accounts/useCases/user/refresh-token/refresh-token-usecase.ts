@@ -1,6 +1,6 @@
 import { verify, sign } from 'jsonwebtoken'
 
-import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/UsersTokenRepositories'
+import { UsersTokensRepositories } from '@modules/accounts/infra/prisma/repositories/users-token-repositories'
 import auth from '@config/auth'
 import { AppError } from '@shared/errors/AppError'
 import { HttpCode } from '@shared/errors/http-codes'

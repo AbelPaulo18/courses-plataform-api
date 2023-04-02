@@ -1,18 +1,18 @@
+import { Users_Tokens } from '@prisma/client'
 import { ICreateUserTokenDTO } from '../dtos/ICreateUserTokenDTO'
-import { UserTokens } from '../entities/UserTokens'
 
 export interface IUserTokensRepository {
 	create({
 		user_id,
 		expires_date,
 		refresh_token,
-	}: ICreateUserTokenDTO): Promise<UserTokens>
+	}: ICreateUserTokenDTO): Promise<Users_Tokens>
 	findByUserIdAndRefreshToken(
 		user_id: string,
 		refresh_token: string
-	): Promise<UserTokens>
+	): Promise<Users_Tokens | null>
 
 	deleteById(user_id: string): Promise<void>
 
-	findByRefreshToken(refresh_token: string): Promise<UserTokens>
+	findByRefreshToken(refresh_token: string): Promise<Users_Tokens | null>
 }

@@ -1,7 +1,7 @@
 import { ICreateUserTokenDTO } from '@modules/accounts/dtos/ICreateUserTokenDTO'
-import { User } from '@modules/accounts/entities/User'
-import { UserTokens } from '@modules/accounts/entities/UserTokens'
+
 import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
+import { Users_Tokens } from '@prisma/client'
 import { prisma } from '@shared/infra/prisma'
 
 export class UsersTokensRepositories implements IUserTokensRepository {
@@ -11,7 +11,7 @@ export class UsersTokensRepositories implements IUserTokensRepository {
 		user_id,
 		expires_date,
 		refresh_token,
-	}: ICreateUserTokenDTO): Promise<UserTokens> {
+	}: ICreateUserTokenDTO): Promise<Users_Tokens> {
 		const userToken = await this.repository.create({
 			data: {
 				expires_date,
@@ -26,7 +26,7 @@ export class UsersTokensRepositories implements IUserTokensRepository {
 	async findByUserIdAndRefreshToken(
 		user_id: string,
 		refresh_token: string
-	): Promise<UserTokens> {
+	): Promise<Users_Tokens | null> {
 		const usersTokens = await this.repository.findFirst({
 			where: { user_id, refresh_token },
 		})
@@ -38,7 +38,9 @@ export class UsersTokensRepositories implements IUserTokensRepository {
 		await this.repository.delete({ where: { id: user_id } })
 	}
 
-	async findByRefreshToken(refresh_token: string): Promise<UserTokens> {
+	async findByRefreshToken(
+		refresh_token: string
+	): Promise<Users_Tokens | null> {
 		return await this.repository.findFirst({ where: { refresh_token } })
 	}
 }

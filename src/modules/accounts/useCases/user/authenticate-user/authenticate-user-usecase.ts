@@ -1,6 +1,6 @@
 import auth from '@config/auth'
 import { AppError } from '@errors/AppError'
-import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository'
+import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
 import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
 import { compare } from 'bcrypt'
 import dayjs from 'dayjs'
