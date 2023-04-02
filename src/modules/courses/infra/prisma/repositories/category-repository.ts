@@ -32,7 +32,7 @@ export class CategoryRepository implements ICategoryRepository {
 		| null
 	> {
 		const categories = await this.repository.findMany({
-			include: { courses: true },
+			include: { courses: true, _count: true },
 		})
 
 		return categories
