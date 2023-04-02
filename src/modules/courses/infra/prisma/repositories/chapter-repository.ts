@@ -4,6 +4,9 @@ import { IChapterRepository } from '@modules/courses/repositories/ichapter-repos
 import { prisma } from '@shared/infra/prisma/index'
 
 export class ChapterRepository implements IChapterRepository {
+	async listAll(): Promise<Chapter[]> {
+		return await this.repository.findMany()
+	}
 	private repository = prisma.chapters
 
 	async findByUnique(number: number, courses_id: string): Promise<Chapter> {
