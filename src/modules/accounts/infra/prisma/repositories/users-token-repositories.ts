@@ -1,6 +1,6 @@
 import { ICreateUserTokenDTO } from '@modules/accounts/dtos/ICreateUserTokenDTO'
 
-import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
+import { IUserTokensRepository } from '@modules/accounts/repositories/iuser-tokens-repository'
 import { Users_Tokens } from '@prisma/client'
 import { prisma } from '@shared/infra/prisma'
 

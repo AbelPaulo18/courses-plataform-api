@@ -3,7 +3,7 @@ import { resolve } from 'path'
 import { v4 as uuidV4 } from 'uuid'
 
 import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
-import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
+import { IUserTokensRepository } from '@modules/accounts/repositories/iuser-tokens-repository'
 import { AppError } from '@shared/errors/AppError'
 import { addHours } from '@utils/dayjs-date-provider'
 import { IMailProvider } from '@shared/providers/mail-provider/imail-provider'

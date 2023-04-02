@@ -1,7 +1,7 @@
 import auth from '@config/auth'
 import { AppError } from '@errors/AppError'
 import { IUsersRepository } from '@modules/accounts/repositories/iusers-repository'
-import { IUserTokensRepository } from '@modules/accounts/repositories/IUserTokensRepository'
+import { IUserTokensRepository } from '@modules/accounts/repositories/iuser-tokens-repository'
 import { compare } from 'bcrypt'
 import dayjs from 'dayjs'
 import { sign } from 'jsonwebtoken'
