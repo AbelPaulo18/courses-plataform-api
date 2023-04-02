@@ -1,6 +1,6 @@
 import { IVideosDTO } from '@modules/courses/dtos/videos-dto'
-import { Videos } from '@modules/courses/entities/videos'
 import { IVideosRepository } from '@modules/courses/repositories/ivideos-repository'
+import { Videos } from '@prisma/client'
 import { prisma } from '@shared/infra/prisma'
 
 export class VideoRepository implements IVideosRepository {
@@ -21,7 +21,7 @@ export class VideoRepository implements IVideosRepository {
 			},
 		})
 	}
-	async findById(id: string): Promise<Videos> {
+	async findById(id: string): Promise<Videos | null> {
 		const video = await this.repository.findFirst({ where: { id } })
 		return video
 	}
@@ -29,7 +29,7 @@ export class VideoRepository implements IVideosRepository {
 		name: string,
 		chapter_id: string,
 		number: number
-	): Promise<Videos> {
+	): Promise<Videos | null> {
 		const video = await this.repository.findFirst({
 			where: {
 				OR: [

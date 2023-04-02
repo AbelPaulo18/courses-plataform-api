@@ -1,5 +1,5 @@
+import { Courses } from '@prisma/client'
 import { ICoursesDTO } from '../dtos/courses-dto'
-import { Courses } from '../entities/courses'
 
 export interface ICoursesRepository {
 	create(data: ICoursesDTO): Promise<void>

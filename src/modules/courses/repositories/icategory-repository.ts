@@ -1,6 +1,5 @@
+import { Category, Courses, Prisma } from '@prisma/client'
 import { ICategoryDTO } from '../dtos/category-dto'
-import { Category } from '../entities/category'
-import { Courses } from '../entities/courses'
 
 export interface ICategoryRepository {
 	create({ name, description }: ICategoryDTO): Promise<void>
@@ -15,6 +14,7 @@ export interface ICategoryRepository {
 	listCategoriesWithCourses(): Promise<
 		| (Category & {
 				courses: Courses[]
+				_count: Prisma.CategoryCountOutputType
 		  })[]
 		| null
 	>

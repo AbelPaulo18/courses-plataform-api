@@ -1,5 +1,5 @@
+import { Videos } from '@prisma/client'
 import { IVideosDTO } from '../dtos/videos-dto'
-import { Videos } from '../entities/videos'
 
 export interface IVideosRepository {
 	create(data: IVideosDTO): Promise<void>
@@ -7,8 +7,8 @@ export interface IVideosRepository {
 		name: string,
 		chapter_id: string,
 		number: number
-	): Promise<Videos>
-	findById(id: string): Promise<Videos>
+	): Promise<Videos | null>
+	findById(id: string): Promise<Videos | null>
 	listAll(): Promise<Videos[]>
 	updateById(id: string): Promise<void>
 	deleteById(id: string): Promise<void>

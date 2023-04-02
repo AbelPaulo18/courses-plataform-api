@@ -1,8 +1,8 @@
 import { ICategoryDTO } from '@modules/courses/dtos/category-dto'
-import { Category } from '@modules/courses/entities/category'
-import { Courses } from '@modules/courses/entities/courses'
+
 import { prisma } from '@shared/infra/prisma/index'
 import { ICategoryRepository } from '../../../repositories/icategory-repository'
+import { Category, Courses, Prisma } from '@prisma/client'
 
 export class CategoryRepository implements ICategoryRepository {
 	private repository
@@ -28,6 +28,7 @@ export class CategoryRepository implements ICategoryRepository {
 	async listCategoriesWithCourses(): Promise<
 		| (Category & {
 				courses: Courses[]
+				_count: Prisma.CategoryCountOutputType
 		  })[]
 		| null
 	> {
