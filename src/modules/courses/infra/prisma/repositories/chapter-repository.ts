@@ -1,10 +1,17 @@
 import { IChapterDTO } from '@modules/courses/dtos/chapter-dto'
 
 import { IChapterRepository } from '@modules/courses/repositories/ichapter-repository'
-import { Chapters } from '@prisma/client'
+import { Chapters, Prisma, Videos } from '@prisma/client'
 import { prisma } from '@shared/infra/prisma/index'
 
 export class ChapterRepository implements IChapterRepository {
+	async findChaptersVideosRelation(): Promise<
+		(Chapters & { videos: Videos[]; _count: Prisma.ChaptersCountOutputType })[]
+	> {
+		return await this.repository.findMany({
+			include: { videos: true, _count: true },
+		})
+	}
 	async listAll(): Promise<Chapters[]> {
 		return await this.repository.findMany()
 	}
