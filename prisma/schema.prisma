@@ -63,7 +63,7 @@ model Admin {
 model Courses {
   id          String    @id @default(uuid())
   name        String    @unique
-  price       Decimal
+  price       Float
   description String
   cover       String
   duration    Int 
