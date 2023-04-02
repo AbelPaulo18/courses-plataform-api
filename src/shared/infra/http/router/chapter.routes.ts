@@ -8,7 +8,7 @@ chapterRouter.post('/', (request, response, next) => {
 	createChapterController.handle(request, response, next)
 })
 
-chapterRouter.get('/all', (request, response, next) => {
+chapterRouter.get('/', (request, response, next) => {
 	listChaptersController.handle(request, response, next)
 })
 
