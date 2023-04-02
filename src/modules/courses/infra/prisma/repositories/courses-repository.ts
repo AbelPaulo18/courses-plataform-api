@@ -1,13 +1,17 @@
 import { ICoursesDTO } from '@modules/courses/dtos/courses-dto'
 import { Courses } from '@modules/courses/entities/courses'
+import { ICoursesRepository } from '@modules/courses/repositories/icourses-repository'
 import { prisma } from '@shared/infra/prisma/index'
-import { ICoursesRepository } from '../icourses-repository'
 
 export class CoursesRepository implements ICoursesRepository {
-	private repository
+	private repository = prisma.courses
 
-	constructor() {
-		this.repository = prisma.courses
+	async findCoursesChaptersRelation(): Promise<any> {
+		const coursesChapters = await this.repository.findMany({
+			include: { chapters: true, _count: true, reviews: true },
+		})
+
+		return coursesChapters
 	}
 
 	async create({
