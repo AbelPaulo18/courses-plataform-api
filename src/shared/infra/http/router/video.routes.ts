@@ -1,4 +1,4 @@
-import { createVideoController } from '@modules/courses/useCases/videos'
+import { createVideoController } from '@modules/courses/useCases/videos/create-videos'
 import { Router } from 'express'
 
 const videosRouter = Router()
