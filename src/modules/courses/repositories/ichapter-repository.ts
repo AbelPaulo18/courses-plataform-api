@@ -9,4 +9,5 @@ export interface IChapterRepository {
 	findChaptersVideosRelation(): Promise<
 		(Chapters & { videos: Videos[]; _count: Prisma.ChaptersCountOutputType })[]
 	>
+	updateChapter(id: string, data: IChapterDTO): Promise<void>
 }
