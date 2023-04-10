@@ -56,6 +56,11 @@ export class ChapterRepository implements IChapterRepository {
 
 		return chapter
 	}
+
+	async findById(id: string): Promise<Chapters | null> {
+		return await this.repository.findUnique({ where: { id } })
+	}
+
 	async updateChapter(id: string, data: IChapterDTO): Promise<void> {
 		await this.repository.update({
 			where: {
