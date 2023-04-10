@@ -56,4 +56,15 @@ export class ChapterRepository implements IChapterRepository {
 
 		return chapter
 	}
+	async updateChapter(id: string, data: IChapterDTO): Promise<void> {
+		await this.repository.update({
+			where: {
+				chapter_unique: {
+					courses_id: data.courses_id,
+					number: data.number,
+				},
+			},
+			data,
+		})
+	}
 }
