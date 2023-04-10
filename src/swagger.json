@@ -114,7 +114,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#definitions/Categories"
+									"$ref": "#definitions/Category"
 								}
 							}
 						}
@@ -190,6 +190,25 @@
 				"tags": ["Chapters"],
 				"summary": "Get all chapters",
 				"description": "List all registered chapters",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#definitions/Chapters-List"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/chapters/rel": {
+			"get": {
+				"tags": ["Chapters"],
+				"summary": "Get all chapters and related content",
+				"description": "List all registered chapters and related content",
 				"responses": {
 					"200": {
 						"description": "Success",
