@@ -6,7 +6,7 @@ import handlebars from 'handlebars'
 import { IMailProvider } from '../imail-provider'
 
 export class EtherealMailProvider implements IMailProvider {
-	private client: Transporter
+	private client: Transporter | null = null
 	constructor() {
 		nodemailer
 			.createTestAccount()
@@ -38,7 +38,7 @@ export class EtherealMailProvider implements IMailProvider {
 
 		const templateHTML = templateParse(variables)
 
-		const message = await this.client.sendMail({
+		const message = await this.client?.sendMail({
 			to,
 			from: 'Courses Platform <noreply@apl.com>',
 			subject,
