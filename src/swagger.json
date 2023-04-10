@@ -162,6 +162,47 @@
 					}
 				}
 			}
+		},
+		"/chapters": {
+			"post": {
+				"tags": ["Chapters"],
+				"summary": "Creates a chapter",
+				"description": "Creates a chapter and assign it to a course",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#definitions/Chapters"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"400": {
+						"description": "Chapter already exists"
+					}
+				}
+			},
+			"get": {
+				"tags": ["Chapters"],
+				"summary": "Get all chapters",
+				"description": "List all registered chapters",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#definitions/Chapters-List"
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	},
 	"definitions": {
@@ -271,6 +312,65 @@
 					},
 					"category_id": {
 						"type": "string"
+					}
+				}
+			}
+		},
+		"Chapters": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"duration": {
+					"type": "number"
+				},
+				"number": {
+					"type": "number"
+				},
+				"status": {
+					"type": "boolean"
+				},
+				"courses_id": {
+					"type": "string"
+				}
+			},
+			"example": {
+				"name": "test Chapter",
+				"courses_id": "an existent course id",
+				"duration": 231,
+				"number": 0,
+				"status": false
+			}
+		},
+		"Chapters-List": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"duration": {
+						"type": "number"
+					},
+					"number": {
+						"type": "number"
+					},
+					"courses_id": {
+						"type": "string"
+					},
+					"created_at": {
+						"type": "string"
+					},
+					"updated_at": {
+						"type": "string"
+					},
+					"status": {
+						"type": "boolean"
 					}
 				}
 			}
