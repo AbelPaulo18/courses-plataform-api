@@ -1,4 +1,7 @@
-import { IChapterDTO } from '@modules/courses/dtos/chapter-dto'
+import {
+	IChapterDTO,
+	IChapterUpdateDTO,
+} from '@modules/courses/dtos/chapter-dto'
 
 import { IChapterRepository } from '@modules/courses/repositories/ichapter-repository'
 import { Chapters, Prisma, Videos } from '@prisma/client'
@@ -61,7 +64,7 @@ export class ChapterRepository implements IChapterRepository {
 		return await this.repository.findUnique({ where: { id } })
 	}
 
-	async updateChapter(id: string, data: IChapterDTO): Promise<void> {
+	async updateChapter(id: string, data: IChapterUpdateDTO): Promise<void> {
 		await this.repository.update({
 			where: {
 				id,
